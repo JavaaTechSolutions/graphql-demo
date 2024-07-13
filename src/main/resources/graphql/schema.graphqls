@@ -6,6 +6,14 @@ type Product {
 	stock:Int
 }
 
+input ProductInput {
+    id: ID,
+    name:String
+    category:String
+    price:Float
+    stock:Int
+}
+
 type Query {
 	 getProducts:[Product]
 	 getProductsByName(name:String):[Product]
@@ -13,4 +21,7 @@ type Query {
 
 type Mutation {
 	updatePrice(id:ID, price:Float): Product
+	addProduct(product:ProductInput): Product
+	updateProduct(product:ProductInput): Product
+	deleteProduct(id:ID): String
 }	
